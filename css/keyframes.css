@@ -1,0 +1,18 @@
+@keyframes mockup {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+@keyframes buttonStarted {
+  from {
+    transform: translateY(30px);
+    opacity: 0.5;
+  }
+}
+@keyframes h1TextStarted {
+  from {
+    transform: translateX(-100px);
+    opacity: 0.5;
+  }
+}

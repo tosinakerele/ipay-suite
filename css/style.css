@@ -1,0 +1,135 @@
+section.hero__section {
+  background-image: url(/assets/images/hero_magic.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+h1 {
+  -webkit-animation: h1TextStarted 1s ease-out;
+          animation: h1TextStarted 1s ease-out;
+}
+
+.btn__red__started button {
+  -webkit-animation: buttonStarted 1s ease-in;
+          animation: buttonStarted 1s ease-in;
+}
+
+.hero__image {
+  -webkit-animation: mockup 1s ease-in;
+          animation: mockup 1s ease-in;
+}
+
+section.payroll__process div :first-child:hover h3,
+section.payroll__process div :first-child:hover p {
+  color: #296db3 !important;
+}
+section.payroll__process div :nth-child(2):hover h3,
+section.payroll__process div :nth-child(2):hover p {
+  color: #3d972e;
+}
+section.payroll__process div :nth-child(3):hover h3,
+section.payroll__process div :nth-child(3):hover p {
+  color: #f79b24;
+}
+
+section.features .actived {
+  border-bottom: 2px solid #800000;
+  transition: all ease-in 500ms;
+  color: #800000;
+}
+section.features ul {
+  margin-left: 7%;
+  margin-top: 20px;
+}
+section.features ul li,
+section.features ul section.reasons li {
+  list-style: url("/assets/list.png");
+  padding-left: 7px;
+  line-height: 30px;
+}
+
+section.reasons li {
+  list-style: url("/assets/list.png");
+  padding-left: 7px;
+}
+
+section.business__needs .dot {
+  cursor: pointer;
+  height: 10px;
+  width: 10px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+section.business__needs .dot.active {
+  background-color: #3d972e;
+}
+section.business__needs .prev,
+section.business__needs .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -22px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+section.business__needs .next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+section.business__needs .prev:hover,
+section.business__needs .next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+section.testimonials::before {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 70%;
+  background: #a8eba2;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+section.testimonials::after {
+  position: absolute;
+  content: "";
+  width: 20%;
+  height: 60%;
+  background: #a8eba2;
+  bottom: 0;
+  right: 0;
+  z-index: -1;
+}
+section.testimonials .testimonial__details::after {
+  position: absolute;
+  content: url("/assets/exclamation-mark.png");
+  width: 50px;
+  height: 50px;
+  z-index: 2;
+  right: 0;
+  top: -50px;
+}
+
+@media screen and (max-width: 768px) {
+  .testimonial__details::after {
+    width: 30px !important;
+    height: 30px !important;
+    z-index: 2;
+    right: 0;
+    top: -30px !important;
+  }
+}/*# sourceMappingURL=style.css.map */

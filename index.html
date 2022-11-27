@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Streamling Payroll Processing and Payment"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iPaySuite || Payroll Processing and Payment</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/keyframes.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+      integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+ <script src="./js/tailwindConfig.js"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  
+  <style>
+    .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(0,0,0);
+        background-color: rgba(0,0,0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+        }
+
+        .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+        }
+
+        .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+        }
+
+        .overlay a:hover, .overlay a:focus {
+        color: #f1f1f1;
+        }
+
+        .overlay .closebtn {
+            position: absolute;
+            top: -17px;
+            right: 12px;
+            font-size: 60px; 
+        }
+
+        @media screen and (max-height: 450px) {
+            .overlay a {
+                font-size: 20px
+            }
+            .overlay .closebtn {
+                font-size: 40px;
+                top: 10px;
+                right: 35px;
+            }
+        }
+    </style>
+  </head>
+  <body>
+    <header class="flex items-center justify-between h-[80px] bg-white shadow px-[6vw] fixed right-0 left-0 top-0 overflow-hidden z-20">
+
+        <div id="myNav" class="overlay">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="overlay-content relative">
+                <a href="services">Services</a>
+                <a href="pricing">Pricing</a> 
+                <a href="contact">Contact Us</a>
+                <a href="/" class="py-2 text-white bg-red rounded ">Login</a>
+            </div>
+        </div>
+
+
+      <div class="left__side flex items-center justify-between">
+        <div class="logo">
+          <img src="/assets/images/logo.png" alt="iPaysuite" />
+        </div>
+        <nav class="ml-10 max-md:hidden">
+          <ul class="flex items-center">            
+            <li class="mx-3 hover:text-red text-medium"><a class='active:text-red' id="services" href="/services">Services</a></li>  
+            <li class="mx-3 hover:text-red text-medium"><a class='active:text-red' id="pricing" href="/pricing">Pricing</a></li>
+            <li class="mx-3 hover:text-red text-medium"><a class='active:text-red' id="contact" href="/contact">Contact Us</a></li>
+          </ul>
+        </nav>        
+      </div>
+      <a href="/" class="py-2 px-8 text-white bg-red rounded max-md:hidden">Login</a>
+      <span 
+        class="md:hidden text-red"
+        style="font-size:30px;cursor:pointer" 
+        onclick="openNav()">
+        &#9776;
+    </span>
+    </header>
+    <main class="mt-[80px]">
+      <section class="hero__section flex max-md:flex-col max-md:justify-center max-md:gap-10 items-center px-[6vw] h-heroHeight max-md:relative">
+        <div class="md:w-1/2 max-md:text-center">
+          <h1 class="text-white md:text-6xl text-3xl leading-20 font-bold">Streamlining Payroll Processing and Payment</h1>
+          <a href="/get_started" class="max-md:absolute max-md:bottom-[20px] max-md:left-[50%] -translate-x-1/2 btn__red__started"><button class=" text-white bg-red rounded px-12 mb-10 md:mt-10 py-2 md:py-3">Get Started</button></a>
+        </div>
+        <div class="md:w-1/2 hero__image max-md:mb-10">
+          <img src="./assets/images/hero-removebg-preview.png" alt="laptop-mockup" class="w-full "/>
+        </div>
+      </section>
+
+      <section class="payroll__process py-20" data-aos="fade-down"  data-aos-duration="1000"  >
+        <h2 class="text-semiBlack font-bold text-2xl md:text-4xl text-center max-md:pb-5">Get started with your Payroll Processing</h2>
+        <div class="md:grid grid-cols-3 gap-10 items-center justify-center container mx-auto pt:6 md:pt-10">
+          <div data-aos="fade-left" data-aos-duration="1000" data-aos-delay="120" class="p-5 hover:shadow-md rounded-lg ease-out transition-all duration-500">
+            <img src="/assets/Group 1000000842.png" alt=""   width="80" height="80"  class="sub  bg-lightBlue rounded-full p-4" />
+            <h3 class="mt-5 font-bold text-base md:text-xl text-semiBlack">Subscription</h3>
+            <p class="max-md:text-sm py-2 md:py-5">
+              Choose from one of our subscription plans and fill out the
+              required fields to get started.
+            </p>
+          </div>
+          <div data-aos="fade-up" data-aos-duration="1000" data-aos-delay="120" class="p-5 hover:shadow-md rounded-lg ease-out transition-all duration-500">
+            <div class=" h-[80px] w-[80px]">
+                <img src="/assets/Vector.png" alt="" class="w-100 h-100 plat bg-lightGreen rounded-full p-4" />
+            </div>
+          <h3 class="mt-5 font-bold text-base md:text-xl text-semiBlack">Platform Setup</h3>
+            <p class="max-md:text-sm py-5">
+              In less than 5 minutes, you can set up your compensation system
+              and upload employee data.
+            </p>
+          </div>
+          <div data-aos="fade-right" data-aos-duration="1000" data-aos-delay="120" class="p-5 hover:shadow-md rounded-lg ease-out transition-all duration-500">
+            <img src="/assets/Group 1000000848.png" alt=""  width="80" height="80"  class="pay bg-lightYellow rounded-full p-4" />
+            <h3 class="mt-5 font-bold text-base md:text-xl text-semiBlack">Payroll Processing</h3>
+                <p class="max-md:text-sm py-5">
+                Your payroll report(s) can be approved and paid with a single
+                click. What a fantastic way to bid farewell to the month-end
+                payroll headache.
+                </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="features px-[6vw]"  data-aos="fade-down"  data-aos-duration="2000">
+        <div class="tab text-center md:text-xl mb-3 item-center justify-between justify-center md:mb-20 max-md:flex ">
+          <button class="text-grey tablinks mx:mx-5 border-transparent border-[2px] duration-500 ease-in transition-all p-1 md:p-2" onclick="openCity(event, 'London')" id="defaultOpen">Easy Tax Filling</button>
+          <button class="text-grey tablinks md:mx-5 border-transparent border-[2px] duration-500 ease-in transition-all p-1 md:p-2" onclick="openCity(event, 'Paris')">Compliance</button>
+          <button class="text-grey tablinks md:mx-5 border-transparent border-[2px] duration-500 ease-in transition-all p-1 md:p-2" onclick="openCity(event, 'Tokyo')">Data Security</button>
+        </div>
+
+        <div id="London" class="tabcontent duration-500 ease-in transition-all">
+          <div  class="grid md:grid-cols-2 items-center max-sm:justify-center md:md:gap-[8rem] gap-3">
+            <div>
+              <h3 class="font-bold text-xl text-semiBlack  pb-2 md:pb-5">Easy Tax Filling</h3>
+              <p class="max-md:text-sm">Our payroll software was developed by practicing accountants with years of experience working with clients from a variety of sectors. It will take time to do your own payroll processing duties, and you will be more likely to make mistakes than if you leave it to the specialists.</p>
+              <ul>             
+                <li class="max-md:text-sm">Goto Report Page</li>
+                <li class="max-md:text-sm">Download your Tax report document</li>
+                <li class="max-md:text-sm">Submit to relevant authority</li>
+              </ul>
+            </div>
+            <div class="text-center">
+              <img src='/assets/images/Tax-bro.png' alt='' class="mx-auto "/>
+            </div>            
+          </div>
+        </div>
+
+        <div id="Paris" class="tabcontent  duration-500 ease-in transition-all"> 
+              <div  class="grid md:grid-cols-2 items-center justify-center md:gap-[8rem] gap-3">
+          <div>
+            <h3 class="font-bold text-xl text-semiBlack pb-2 md:pb-5">Compliance</h3>
+            <p class="max-md:text-sm">Many tax and finance departments are frequently constrained by capacity constraints, while also dealing with more complicated compliance and project needs. While the finance division of the firm focuses on other activities, Stransact's talented tax team can assist with managing your tax responsibilities. Stransact's professionals will work directly with you to solve your resource need, regardless of the nature of the project, whether it's resolving a protracted tax issue or permanently completing a specific function.</p> 
+          </div>
+          <div class="text-center"><img src='/assets/images/Frame.png' alt='' style="max-height: 484.4px;" class="mx-auto" /></div>
+            
+          </div>
+          
+        </div>
+
+        <div id="Tokyo" class="tabcontent duration-500 ease-in transition-all">
+              <div  class="grid md:grid-cols-2 items-center justify-center md:gap-[8rem] gap-3">
+           <div>
+            <h3 class=" pb-2 md:pb-5font-bold text-xl text-semiBlack">Data Security</h3>
+          <p class="max-md:text-sm">Because online data security is one of the most difficult aspects of any online solution, we have ensured that your information is encrypted and safeguarded to industry standards. We take the utmost care with our customers' information.</p>
+          <ul>
+            <li class="max-md:text-sm">SSL for keeping our internet connection secure and 
+safeguarding any sensitive data.</li>
+            <li class="max-md:text-sm">Firewall used to prevent unauthorized access.</li>
+            <li class="max-md:text-sm">Two-factor authentication is an extra layer of security
+to help make sure that you, and only you, can access 
+your account.</li>
+            <li class="max-md:text-sm">Our data encryption is used to detect malicious or
+negligent parties from accessing sensitive data.</li>
+          </ul>
+          </div>
+          <div class="text-center"><img src='/assets/images/overview-6.png' alt='' class="mx-auto"/></div>
+        </div>
+            
+          </div>
+      </section>
+      
+      <section class="reasons py-10 md:py-20"  data-aos="fade-down"  data-aos-duration="1000"  >      
+        <h2   data-aos="fade-up" data-aos-anchor-placement="top-center" class="text-center text-semiBlack text-2xl md:text-4xl font-bold md:w-1/2 mx-auto pb-5">Reasons why you should outsource your payroll</h2>
+        
+        <div class="md:w-1/2 mx-auto text-[#2E526B]">
+        <p   data-aos="fade-up" data-aos-anchor-placement="top-center" class="max-md:text-sm max-md:px-5 md:text-center">Employing a Payroll Services bureau gives you the peace of mind that comes with hiring a pro. 
+        Keeping track of payroll computations can be difficult.</p>
+        <ul class="max-md:text-sm max-md:pl-10 max-md:pr-5 py-5">
+          <li  data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="10" class="md:leading-[30px] max-md:pb-3">Using a Payroll Services bureau provides you with the assurance that comes with 
+        engaging a professional. Payroll computations might be tough to keep track of.</li>
+          <li  data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="15" class="md:leading-[30px] max-md:pb-3">We can help you save money and time by outsourcing to us.</li>
+          <li  data-aos="fade-up" data-aos-anchor-placement="top-center" data-aos-delay="20" class="md:leading-[30px] max-md:pb-3">Stay away from the IRS's wrath. Using the incorrect tax tables might lead to 
+        serious consequences.</li>
+          <li  data-aos="fade-up"
+     data-aos-anchor-placement="top-center" data-aos-delay="25" class="md:leading-[30px] max-md:pb-3">It can be difficult to keep up with changes in payroll regulations at the 
+        municipal, state, and federal levels.</li> 
+        </ul>
+        <p   data-aos="fade-up" data-aos-anchor-placement="top-center" class="max-md:text-sm max-md:px-5 md:text-center">We focus on tailoring solutions using IT tools so you may focus on your main business tasks.
+        </p>
+
+        </div>
+      </section>
+
+      <section class="business__needs "  data-aos="fade-down"  data-aos-duration="1000" >
+        <h2 class="text-seimiBlack font-bold text-2xl md:text-4xl py-4 text-center md:w-1/2 mx-auto">We are Here to Assist you with all your Business Needs.</h2>
+
+        <div class="bg-lightGreen py-10 relative">
+          <div class="slideshow-container px-[6vw]">
+            <div class="mySlides fade flex max-md:flex-col items-center justify-center gap-8 md:gap-20">
+              <div class="text-center md:w-1/2">
+                <img
+                  src="/assets/images/employee-self-service.png"
+                  alt=""
+                  class="w-full"
+                />
+              </div>
+              <div class="max-md:h-[180px]">
+                <h3 class="text-grey font-bold pb-2 text-xl md:text-2xl">Employee Self Service</h3>
+                <p class="max-md:text-sm text-[#2E526B]">
+                  Employees can access their personal information and pay stubs
+                  at any time via the web or a mobile application.
+                </p>
+                <a href="/" class="btn__red"><button class="px-10 md:py-3 py-2 rounded font-medium my-4 text-sm md:text-xl bg-red text-white">Get Started</button></a>
+              </div>
+            </div>
+            <div class="mySlides fade flex max-md:flex-col items-center justify-center">
+              <div class="text-center md:w-1/2 md:h-[530px]">
+                <img src="/assets/images/tax-calculator.png" alt="" class="w-full h-full" />
+              </div>
+              <div class="max-md:h-[310px] md:w-1/2">
+                <h3 class="text-grey font-bold pb-2 text-2xl">Tax Calculation</h3>
+               <p class="max-md:text-sm text-[#2E526B]">
+                  A common concern among business owners is whether they have
+                  the appropriate payroll software or ERP installed on their
+                  computer, as well as the most updated tax tables. Using the
+                  incorrect tax tables might lead to severe penalties. Our
+                  payroll system eliminates such problems and ensures that
+                  payroll runs smoothly. Business Risk: If your in-house payroll
+                  processor obtains a new job, they'll take their whole payroll
+                  knowledge with them. Using a third-party service like ours
+                  avoids such a risk. Our application is backed by a well-known
+                  accounting firm with extensive experience in taxation and
+                  accounting.
+                </p>
+              </div>
+            </div>
+            <!-- Next and previous buttons -->
+            <a class="prev text-red" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next text-red" onclick="plusSlides(1)">&#10095;</a>
+          </div>
+          <br />
+          <div style="text-align: center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="testimonials relative py-3 px-[6vw]"  data-aos="fade-down"  data-aos-duration="1000" >
+        <div class=" bg-white container mx-auto shadow-md my-10">
+          <h2 class="md:text-2xl text-2xl text-center font-bold text-semiBlack pt-5">Why they trust us</h2>
+          <div class="md:flex items-center justify-center md:gap-20 md:py-10 px-5">
+            <div class="testimonial-picture w-[200px] h-[200px] rounded-full  max-md:mb-10  max-md:mt-3 max-md:mx-auto">
+              <img src="/assets/images/testimonial.jpeg" alt="pics" class="object-cover w-full h-full rounded-full" />
+            </div>
+            <div class="testimonial__details relative">
+              <p class="max-md:text-sm text-blue pb-3">
+                <i>
+                I just wanted to let you know that your team has been doing
+                tremedous job on our requests</p></i>
+              </p>
+              <h3 class="text-blue font-medium text-lg">Agatha Morgan</h3>
+              <p class="text-green max-md:text-sm max-md:pb-5">Customer</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="newsletter bg-lightGreen md:grid grid-cols-2 items-center py-10 md:pr-[6vw]  data-aos="fade-down"  data-aos-duration="1000" ">
+        <div class="w-4/6">
+          <img
+            src="/assets/images/envelope.png"
+            alt="envelope"
+            style="width: 100%; height: auto"
+          />
+        </div>
+        <form class="form newsletter-form  max-md:px-3  max-md:pt-10" >
+          <h2 class="newsletter-text mb-4 font-bold text-2xl">Subscribe to our newsletter</h2>
+          <input
+            type="text"
+            placeholder="Email Address"           
+            class="newsletter-input mb-4 border rounded border-black py-2 px-3 w-9/12  max-md:w-full "         
+          /><br />
+
+          <button class="subscribe-btn text-white bg-black px-10 rounded py-2 font-medium" type="submit">SUBSCRIBE</button>
+        </form>
+      </section>
+
+      <!-- FOOTER SECTION START -->
+      <footer id="footer" class="py-10 px-[6vw]">
+        <div id="footer-details pb-10">
+          <div class="logo-name py-3">
+            <img src="assets/images/logo.png" class="logo" alt="" />
+          </div>
+          <div  class="md:grid grid-cols-6 items-start gap-10 pb-5">
+            <div id="question-address" class="col-start-1 col-end-3">
+              <div>
+                <h3 class="text-md font-bold text-grey pb-1">Have a Questions?</h3>
+                <p class="max-md:text-sm">Call us +234 802 1811117</p>
+              </div>
+              <div>
+                <h3 class="text-md font-bold text-grey mt-3 pb-1" >Address</h3 >
+                <p class="max-md:text-sm">Plot 126, Primate Adejobi creasent,</p>
+                <p class="max-md:text-sm">Anthony village 100232, Lagos.</p>
+              </div>
+            </div>
+            <ul class="footer-option col-start-4  max-md:pt-3">
+              <h3 class="text-green md:text-xl font-bold footer-sub-header md:pb-3">ABOUT</h3>
+              <li class="max-md:text-sm">About Us</li>
+              <li class="max-md:text-sm">Blog</li>
+              <li class="max-md:text-sm">Privacy Policy</li>
+              <li class="max-md:text-sm">Term of Service</li>
+            </ul>
+            <ul class="footer-option col-start-5 max-md:pt-3">
+              <h3 class="text-green font-bold footer-sub-header md:pb-3 md:text-xl">HELP</h3>
+              <li class="max-md:text-sm truncate">info@iPaysuite.com</li>
+              <li class="max-md:text-sm" >Contact Us</li>
+            </ul>
+            <ul class="footer-option col-start-6 max-md:pt-3">
+              <h3 class="text-green   font-bold footer-sub-header md:pb-3 md:text-xl">CONNECT</h3>
+              <li class="max-md:text-sm">Facebook</li>
+              <li class="max-md:text-sm">Twitter</li>
+              <li class="max-md:text-sm">Instagram</li>
+            </ul>
+          </div>
+        </div>
+        <hr id="footer-horizontal-rule" />
+        <div id="footer-copyright" class="pt-5 font-medium md:flex items-center justify-center text-center">
+          <p class="max-md:text-sm px-2">&copy; Copyright <span id="year"></span>, All Rights Reserved</p>
+          <p class="max-md:text-sm px-2">Privacy Policy</p>
+          <p class="max-md:text-sm px-2">Terms</p>
+        </div>
+      </footer>
+      <!-- FOOTER SECTION ENDS -->
+    </main>
+     <script>  AOS.init();</script>
+    <script src="js/script.js"></script>
+    <script src="js/script2.js"></script>
+    <script src="js/script3.js"></script>
+    <script>
+        const date = new Date();
+        const year = date.getUTCFullYear()
+        const spanYear = document.getElementById('year');
+        spanYear.innerText = year;
+
+        function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+        }
+
+        function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+        }
+    </script>
+  </body>
+</html>

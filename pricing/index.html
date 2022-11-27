@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Streamling Payroll Processing and Payment"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iPaySuite || Payroll Processing and Payment</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/tab.css" />
+    <link rel="stylesheet" href="../css/keyframes.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+      integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="../js/tailwindConfig.js"></script>
+    <style>
+      .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .overlay a:hover,
+      .overlay a:focus {
+        color: #f1f1f1;
+      }
+
+      .overlay .closebtn {
+        position: absolute;
+        top: -17px;
+        right: 12px;
+        font-size: 60px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .overlay a {
+          font-size: 20px;
+        }
+        .overlay .closebtn {
+          font-size: 40px;
+          top: 10px;
+          right: 35px;
+        }
+      }
+
+      .accordion {
+        color: #444;
+        cursor: pointer;
+        padding: 18px;
+        width: 100%;
+        border: 1px solid #800000;
+        text-align: left;
+        outline: none;
+        font-size: 15px;
+        transition: 0.4s;
+      }
+
+      .activeddd,
+      .accordion:hover {
+        background-color: #d8f1d980;
+      }
+
+      .accordion:after {
+        content: "\002B";
+        color: #777;
+        font-weight: bold;
+        float: right;
+        margin-left: 5px;
+      }
+
+      .activeddd:after {
+        content: "\2212";
+      }
+
+      .panel {
+        padding: 0 18px;
+        background-color: white;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.2s ease-out;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="flex items-center justify-between h-[80px] bg-white shadow px-[6vw] fixed right-0 left-0 top-0 overflow-hidden z-20"
+    >
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+        <div class="overlay-content relative">
+          <a href="/services">Services</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/contact">Contact Us</a>
+          <a href="/" class="py-2 text-white bg-red rounded">Login</a>
+        </div>
+      </div>
+
+      <div class="left__side flex items-center justify-between">
+        <div class="logo">
+          <a href="/"><img src="/assets/images/logo.png" alt="iPaysuite" /></a>
+        </div>
+        <nav class="ml-10 max-md:hidden">
+          <ul class="flex items-center">
+            <li class="mx-3 hover:text-red text-medium">
+              <a class="active:text-red" id="services" href="/services"
+                >Services</a
+              >
+            </li>
+            <li class="mx-3 hover:text-red text-medium">
+              <a class="active:text-red" id="pricing" href="/pricing"
+                >Pricing</a
+              >
+            </li>
+            <li class="mx-3 hover:text-red text-medium">
+              <a class="active:text-red" id="contact" href="/contact"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <a href="/" class="py-2 px-8 text-white bg-red rounded max-md:hidden"
+        >Login</a
+      >
+      <span
+        class="md:hidden text-red"
+        style="font-size: 30px; cursor: pointer"
+        onclick="openNav()"
+      >
+        &#9776;
+      </span>
+    </header>
+    <main class="mt-[80px]">
+      <section class="banner bg-green text-white pt-20">
+        <p class="text-center">Pricing Plan</p>
+        <h2
+          class="text-center font-bold text-2xl md:text-4xl md:w-4/12 mx-auto"
+        >
+          Best Solution to grow your Business
+        </h2>
+      </section>
+      <section class="">
+        <div class="bg-green pt-10 pb-[130px]">
+          <div class="tab max-md:w-[300px]">
+            <button
+              class="tablinks"
+              id="defaultOpen"
+              onclick="openCity(event, 'Paris')"
+            >
+              INDIVIDUAL
+            </button>
+            <button class="tablinks" onclick="openCity(event, 'Tokyo')">
+              COMPANY
+            </button>
+          </div>
+        </div>
+        <!-- Tab content -->
+        <div
+          id="Paris"
+          class="tabcontent pt-10 px-[8vw] md:grid-cols-3 gap-5 justify-center -mt-[130px]"
+        >
+          <div class="bg-white border rounded-lg p-5">
+            <h3 class="font-bold text-2xl text-center text-black">Basic</h3>
+            <p class="text-center pb-5 text-black">Max: 10 Employees</p>
+            <ul class="text-blue pb-5">
+              <li>Cloud Access</li>
+              <li>Comprehensive Payroll</li>
+              <li>Multi-level Payroll Approval</li>
+              <li>Employee Self Service</li>
+              <li>Direct Payment</li>
+            </ul>
+
+            <button
+              class="rounded-md w-full text-white bg-red py-2 text-center"
+            >
+              Purchase
+            </button>
+          </div>
+          <div class="bg-white border rounded-lg p-5">
+            <h3 class="font-bold text-2xl text-center text-black">Classic</h3>
+            <p class="text-center pb-5 text-black">Max: 10 Employees</p>
+            <ul class="text-blue pb-5">
+              <li>ALL BASIC FEATURES</li>
+              <li>Multi Organisation Structure</li>
+              <li>Payroll Journal (Finance Support)</li>
+              <li>Statutory Payments (PAYE Tax, Pnesion, NSITF, etc.)</li>
+            </ul>
+            <button
+              class="rounded-md w-full text-white bg-red py-2 text-center"
+            >
+              Purchase
+            </button>
+          </div>
+          <div class="bg-white border rounded-lg p-5">
+            <h3 class="font-bold text-2xl text-center text-black">Premium</h3>
+            <p class="text-center pb-5 text-black">Max: 10 Employees</p>
+            <ul class="text-blue pb-5">
+              <li>ALL CLASSIC FEATURES</li>
+              <li>Multi-Currency</li>
+              <li>Flexible Payslip Design</li>
+              <li>API - Integation</li>
+            </ul>
+            <button
+              class="rounded-md w-full text-white bg-red py-2 text-center"
+            >
+              Purchase
+            </button>
+          </div>
+        </div>
+
+        <div
+          id="Tokyo"
+          class="tabcontent pt-10 px-[8vw] md:grid-cols-3 gap-5 justify-center -mt-[130px]"
+        >
+          <div class="bg-white border rounded-lg p-5">
+            <h3 class="font-bold text-2xl text-center text-black">Basic</h3>
+            <p class="text-center pb-5 text-black">Max: 10 Employees</p>
+            <ul class="text-blue pb-5">
+              <li>Cloud Access</li>
+              <li>Comprehensive Payroll</li>
+              <li>Multi-level Payroll Approval</li>
+              <li>Employee Self Service</li>
+              <li>Direct Payment</li>
+            </ul>
+
+            <button
+              class="rounded-md w-full text-white bg-red py-2 text-center"
+            >
+              Purchase
+            </button>
+          </div>
+          <div class="bg-white border rounded-lg p-5">
+            <h3 class="font-bold text-2xl text-center text-black">
+              Joint Managed
+            </h3>
+            <p class="text-center pb-5 text-black">Max: 10 Employees</p>
+            <ul class="text-blue pb-5">
+              <li>Cloud Access</li>
+              <li>Comprehensive Payroll</li>
+              <li>Multi-level Payroll Approval</li>
+              <li>Employee Self Service</li>
+              <li>Direct Payment</li>
+            </ul>
+
+            <button
+              class="rounded-md w-full text-white bg-red py-2 text-center"
+            >
+              Call Us
+            </button>
+          </div>
+          <div class="bg-white border rounded-lg p-5">
+            <h3 class="font-bold text-2xl text-center text-black">
+              Self Managed
+            </h3>
+            <p class="text-center pb-5 text-black">Max: 10 Employees</p>
+            <ul class="text-blue pb-5">
+              <li>Cloud Access</li>
+              <li>Comprehensive Payroll</li>
+              <li>Multi-level Payroll Approval</li>
+              <li>Employee Self Service</li>
+              <li>Direct Payment</li>
+            </ul>
+
+            <button
+              class="rounded-md w-full text-white bg-red py-2 text-center"
+            >
+              Call Us
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="qna md:w-2/4 mx-auto mt-10">
+        <h2 class="text-2xl md:text-4xl text-semiBlack text-center font-bold">
+          Frequently Asked Questions
+        </h2>
+        <p class="pt-2 pb-4 text-grey text-center">
+          Have any question? We are here to help you.
+        </p>
+        <button class="accordion">
+          Is your company data safe on IPaysuite?
+        </button>
+        <div class="panel">
+          <p class="py-3">
+            we have ensured that your information is encrypted and safeguarded
+            to industry standards. We take the utmost care with our customers'
+            information. Our data encryption is used to detect malicious or
+            negligent parties from accessing sensitive data.
+          </p>
+        </div>
+
+        <button class="accordion">What are Disbursement?</button>
+        <div class="panel">
+          <p class="py-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
+        </div>
+
+        <button class="accordion">How do I Sign up on IPaysuite?</button>
+        <div class="panel">
+          <p class="py-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniamv
+          </p>
+        </div>
+        <button class="accordion">
+          What do the categories of payment one-time and recurrent payments
+          signify?
+        </button>
+        <div class="panel">
+          <p class="py-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniamv
+          </p>
+        </div>
+        <button class="accordion">
+          What do the categories of payment one-time and recurrent payments
+          signify?
+        </button>
+        <div class="panel">
+          <p class="py-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniamv
+          </p>
+        </div>
+        <button class="accordion">
+          What do the categories of payment one-time and recurrent payments
+          signify?
+        </button>
+        <div class="panel">
+          <p class="py-3">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniamv
+          </p>
+        </div>
+      </section>
+
+      <!-- FOOTER SECTION START -->
+      <footer id="footer" class="py-10 px-[6vw]">
+        <div id="footer-details pb-10">
+          <div class="logo-name py-3">
+            <img src="../assets/images/logo.png" class="logo" alt="" />
+          </div>
+          <div class="md:grid grid-cols-6 items-start gap-10 pb-5">
+            <div id="question-address" class="col-start-1 col-end-3">
+              <div>
+                <h3 class="text-md font-bold text-[#dedede] pb-1">
+                  Have a Questions?
+                </h3>
+                <p class="max-md:text-sm">Call us +234 802 1811117</p>
+              </div>
+              <div>
+                <h3 class="text-md font-bold text-[#dedede] mt-3 pb-1">
+                  Address
+                </h3>
+                <p class="max-md:text-sm">
+                  Plot 126, Primate Adejobi creasent,
+                </p>
+                <p class="max-md:text-sm">Anthony village 100232, Lagos.</p>
+              </div>
+            </div>
+            <ul class="footer-option col-start-4 max-md:pt-3">
+              <h3
+                class="text-green md:text-xl font-bold footer-sub-header md:pb-3"
+              >
+                ABOUT
+              </h3>
+              <li class="max-md:text-sm">About Us</li>
+              <li class="max-md:text-sm">Blog</li>
+              <li class="max-md:text-sm">Privacy Policy</li>
+              <li class="max-md:text-sm">Term of Service</li>
+            </ul>
+            <ul class="footer-option col-start-5 max-md:pt-3">
+              <h3
+                class="text-green font-bold footer-sub-header md:pb-3 md:text-xl"
+              >
+                HELP
+              </h3>
+              <li class="max-md:text-sm truncate">info@iPaysuite.com</li>
+              <li class="max-md:text-sm">Contact Us</li>
+            </ul>
+            <ul class="footer-option col-start-6 max-md:pt-3">
+              <h3
+                class="text-green font-bold footer-sub-header md:pb-3 md:text-xl"
+              >
+                CONNECT
+              </h3>
+              <li class="max-md:text-sm">Facebook</li>
+              <li class="max-md:text-sm">Twitter</li>
+              <li class="max-md:text-sm">Instagram</li>
+            </ul>
+          </div>
+        </div>
+        <hr id="footer-horizontal-rule" />
+        <div
+          id="footer-copyright"
+          class="pt-5 font-medium md:flex items-center justify-center text-center"
+        >
+          <p class="max-md:text-sm px-2">
+            &copy; Copyright <span id="year"></span>, All Rights Reserved
+          </p>
+          <p class="max-md:text-sm px-2">Privacy Policy</p>
+          <p class="max-md:text-sm px-2">Terms</p>
+        </div>
+      </footer>
+      <!-- FOOTER SECTION ENDS -->
+    </main>
+
+    <script src="../js/script.js"></script>
+    <script src="../js/script2.js"></script>
+    <script src="../js/script3.js"></script>
+    <script src="../js/script4.js"></script>
+    <script>
+      const date = new Date();
+      const year = date.getUTCFullYear();
+      const spanYear = document.getElementById("year");
+      spanYear.innerText = year;
+
+      function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+      }
+
+      function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+      }
+
+      const phoneInputField = document.querySelector("#phone");
+      const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+          "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+      });
+    </script>
+  </body>
+</html>

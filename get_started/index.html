@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="description"
+      content="Streamling Payroll Processing and Payment"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>iPaySuite || Payroll Processing and Payment</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/reset.css" />
+    <link rel="stylesheet" href="../css/keyframes.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.3/gsap.min.js"
+      integrity="sha512-gmwBmiTVER57N3jYS3LinA9eb8aHrJua5iQD7yqYCKa5x6Jjc7VDVaEA0je0Lu0bP9j7tEjV3+1qUm6loO99Kw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="../js/tailwindConfig.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"
+      integrity="sha512-A7AYk1fGKX6S2SsHywmPkrnzTZHrgiVT7GcQkLGDe2ev0aWb8zejytzS8wjo7PGEXKqJOrjQ4oORtnimIRZBtw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css"
+      integrity="sha512-1cK78a1o+ht2JcaW6g8OXYwqpev9+6GqOkz9xmBN9iUUhIndKtxwILGWYOSibOKjLsEdjyjZvYDq/cZwNeak0w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      .overlay {
+        height: 100%;
+        width: 0;
+        position: fixed;
+        z-index: 1;
+        top: 0;
+        left: 0;
+        background-color: rgb(0, 0, 0);
+        background-color: rgba(0, 0, 0, 0.9);
+        overflow-x: hidden;
+        transition: 0.5s;
+      }
+
+      .overlay-content {
+        position: relative;
+        top: 25%;
+        width: 100%;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .overlay a {
+        padding: 8px;
+        text-decoration: none;
+        font-size: 25px;
+        color: #818181;
+        display: block;
+        transition: 0.3s;
+      }
+
+      .overlay a:hover,
+      .overlay a:focus {
+        color: #f1f1f1;
+      }
+
+      .overlay .closebtn {
+        position: absolute;
+        top: -17px;
+        right: 12px;
+        font-size: 60px;
+      }
+
+      @media screen and (max-height: 450px) {
+        .overlay a {
+          font-size: 20px;
+        }
+        .overlay .closebtn {
+          font-size: 40px;
+          top: 10px;
+          right: 35px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="flex items-center justify-between h-[80px] bg-white shadow px-[6vw] fixed right-0 left-0 top-0 overflow-hidden z-20"
+    >
+      <div id="myNav" class="overlay">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+          >&times;</a
+        >
+        <div class="overlay-content relative">
+          <a href="/services">Services</a>
+          <a href="/pricing">Pricing</a>
+          <a href="/contact">Contact Us</a>
+          <a href="/" class="py-2 text-white bg-red rounded">Login</a>
+        </div>
+      </div>
+
+      <div class="left__side flex items-center justify-between">
+        <div class="logo">
+          <a href="/"><img src="/assets/images/logo.png" alt="iPaysuite" /></a>
+        </div>
+        <nav class="ml-10 max-md:hidden">
+          <ul class="flex items-center">
+            <li class="mx-3 hover:text-red text-medium">
+              <a class="active:text-red" id="services" href="/services"
+                >Services</a
+              >
+            </li>
+            <li class="mx-3 hover:text-red text-medium">
+              <a class="active:text-red" id="pricing" href="/pricing"
+                >Pricing</a
+              >
+            </li>
+            <li class="mx-3 hover:text-red text-medium">
+              <a class="active:text-red" id="contact" href="/contact"
+                >Contact Us</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <a href="/" class="py-2 px-8 text-white bg-red rounded max-md:hidden"
+        >Login</a
+      >
+      <span
+        class="md:hidden text-red"
+        style="font-size: 30px; cursor: pointer"
+        onclick="openNav()"
+      >
+        &#9776;
+      </span>
+    </header>
+    <main class="mt-[80px]">
+      <section
+        class="py-10 px-[6vw] getStarted md:grid grid-cols-2 gap-20 justify-between"
+      >
+        <aside  data-aos="fade-right" data-aos-duration="1000">
+          <h2 class="text-green text-2xl md:text-4xl font-bold">Get Started</h2>
+          <p class="md:leading-[30px] py-4">
+            It's very easy to start using iPaySuite. You just need to fill out
+            and submit the Sign Up Form and you will receive access to the app.
+            Fill out the form below to sign up for iPaySuite
+          </p>
+          <form>
+            <label class="leading-8" for="company_name"
+              >Company Name <sup class="text-red">*</sup></label
+            ><br />
+            <input
+              class="w-full p-2 px-3 border rounded border-[#dedede] placeholder-text-[#dedede] focus:border-green mb-4 focus:outline-none focus:ring-1 focus:ring-green"
+              type="text"
+              placeholder="Name of Company"
+            /><br />
+
+            <label class="leading-8" for="full_name"
+              >Full Name <sup class="text-red">*</sup></label
+            ><br />
+            <input
+              class="w-full p-2 px-3 border rounded border-[#dedede] placeholder-text-[#dedede] focus:border-green mb-4 focus:outline-none focus:ring-1 focus:ring-green mb-4"
+              type="text"
+              placeholder="Enter your full name"
+            /><br />
+
+            <label class="leading-8" for="email"
+              >Email Address <sup class="text-red">*</sup></label
+            ><br />
+            <input
+              class="w-full p-2 px-3 border rounded border-[#dedede] placeholder-text-[#dedede] focus:border-green mb-4 focus:outline-none focus:ring-1 focus:ring-green mb-4"
+              type="email"
+              placeholder="xyz@email.com "
+            /><br />
+
+            <label class="leading-8" for="mobile_number"
+              >Mobile Number <sup class="text-red">*</sup></label
+            ><br />
+            <input
+              class="w-full p-2 px-3 border rounded border-[#dedede] placeholder-text-[#dedede] focus:border-green mb-4 focus:outline-none focus:ring-1 focus:ring-green mb-4"
+              type="tel"
+              id="phone"
+              placeholder="+234"
+            /><br />
+
+            <div class="md:grid grid-cols-12 gap-10">
+              <div class="col-span-4">
+                <label class="leading-8" for="company_size"
+                  >Company's Size <sup class="text-red">*</sup></label
+                ><br />
+                <input
+                  class="w-full p-2 px-3 border rounded border-[#dedede] placeholder-text-[#dedede] focus:border-green mb-4 focus:outline-none focus:ring-1 focus:ring-green mb-4"
+                  type="number"
+                  placeholder="20"
+                />
+              </div>
+              <div class="col-span-8">
+                <label class="leading-8" for="position"
+                  >Position <sup class="text-red">*</sup></label
+                ><br />
+                <input
+                  class="w-full p-2 px-3 border rounded border-[#dedede] placeholder-text-[#dedede] focus:border-green mb-4 focus:outline-none focus:ring-1 focus:ring-green mb-4"
+                  type="url"
+                  placeholder="Senior Partner"
+                />
+              </div>
+            </div>
+
+            <label class="leading-8" for="company_website"
+              >Company's Website <sup class="text-red">*</sup></label
+            ><br />
+            <input
+              class="w-full p-2 px-3 border rounded border-[#dedede] placeholder-text-[#dedede] focus:border-green mb-4 focus:outline-none focus:ring-1 focus:ring-green mb-4"
+              type="url"
+              placeholder="mycompanywebsite.com"
+            /><br />
+            <input type="checkbox" name="consent" id="" class="accent-green" />
+            <label for="consent"
+              >I Consent collecting this data and processing it according to the
+              <a href="#" class="text-green font-medium">Privacy Policy</a> of
+              this website.</label
+            >
+            <button
+              type="submit"
+              class="block mt-5 rounded bg-red text-white px-20 py-2"
+            >
+              Signup
+            </button>
+          </form>
+        </aside>
+        <aside  data-aos="fade-left" data-aos-duration="1000" class="max-md:hidden">
+          <img
+            src="../assets/Tosin.png"
+            alt="getStarted-Image"
+            class="w-3/4 mx-auto"
+          />
+        </aside>
+      </section>
+
+      <section
+        class="newsletter bg-lightGreen md:grid grid-cols-2 items-center py-10 md:pr-[6vw]"
+      >
+        <div class="w-4/6">
+          <img
+            src="/assets/images/envelope.png"
+            alt="envelope"
+            class="w-full h-[auto]"
+          />
+        </div>
+        <form class="form newsletter-form max-md:px-3 max-md:pt-10">
+          <h2 class="newsletter-text mb-4 font-bold text-2xl">
+            Subscribe to our newsletter
+          </h2>
+          <input
+            type="text"
+            placeholder="Email Address"
+            class="newsletter-input mb-4 border rounded border-black py-2 px-3 w-9/12 max-md:w-[100%]"
+          /><br />
+
+          <button
+            class="subscribe-btn text-white bg-black px-10 rounded py-2 font-medium"
+            type="submit"
+          >
+            SUBSCRIBE
+          </button>
+        </form>
+      </section>
+
+      <!-- FOOTER SECTION START -->
+      <footer id="footer" class="py-10 px-[6vw]">
+        <div id="footer-details pb-10">
+          <div class="logo-name py-3">
+            <img src="../assets/images/logo.png" class="logo" alt="" />
+          </div>
+          <div class="md:grid grid-cols-6 items-start gap-10 pb-5">
+            <div id="question-address" class="col-start-1 col-end-3">
+              <div>
+                <h3 class="text-md font-bold text-[#dedede] pb-1">
+                  Have a Questions?
+                </h3>
+                <p class="max-md:text-sm">Call us +234 802 1811117</p>
+              </div>
+              <div>
+                <h3 class="text-md font-bold text-[#dedede] mt-3 pb-1">
+                  Address
+                </h3>
+                <p class="max-md:text-sm">
+                  Plot 126, Primate Adejobi creasent,
+                </p>
+                <p class="max-md:text-sm">Anthony village 100232, Lagos.</p>
+              </div>
+            </div>
+            <ul class="footer-option col-start-4 max-md:pt-3">
+              <h3
+                class="text-green md:text-xl font-bold footer-sub-header md:pb-3"
+              >
+                ABOUT
+              </h3>
+              <li class="max-md:text-sm">About Us</li>
+              <li class="max-md:text-sm">Blog</li>
+              <li class="max-md:text-sm">Privacy Policy</li>
+              <li class="max-md:text-sm">Term of Service</li>
+            </ul>
+            <ul class="footer-option col-start-5 max-md:pt-3">
+              <h3
+                class="text-green font-bold footer-sub-header md:pb-3 md:text-xl"
+              >
+                HELP
+              </h3>
+              <li class="max-md:text-sm truncate">info@iPaysuite.com</li>
+              <li class="max-md:text-sm">Contact Us</li>
+            </ul>
+            <ul class="footer-option col-start-6 max-md:pt-3">
+              <h3
+                class="text-green font-bold footer-sub-header md:pb-3 md:text-xl"
+              >
+                CONNECT
+              </h3>
+              <li class="max-md:text-sm">Facebook</li>
+              <li class="max-md:text-sm">Twitter</li>
+              <li class="max-md:text-sm">Instagram</li>
+            </ul>
+          </div>
+        </div>
+        <hr id="footer-horizontal-rule" />
+        <div
+          id="footer-copyright"
+          class="pt-5 font-medium md:flex items-center justify-center text-center"
+        >
+          <p class="max-md:text-sm px-2">
+            &copy; Copyright <span id="year"></span>, All Rights Reserved
+          </p>
+          <p class="max-md:text-sm px-2">Privacy Policy</p>
+          <p class="max-md:text-sm px-2">Terms</p>
+        </div>
+      </footer>
+      <!-- FOOTER SECTION ENDS -->
+    </main>
+
+    <script>
+      AOS.init();
+    </script>
+    <script src="../js/script.js"></script>
+    <script src="../js/script2.js"></script>
+    <script src="../js/script3.js"></script>
+    <script>
+      const date = new Date();
+      const year = date.getUTCFullYear();
+      const spanYear = document.getElementById("year");
+      spanYear.innerText = year;
+
+      function openNav() {
+        document.getElementById("myNav").style.width = "100%";
+      }
+
+      function closeNav() {
+        document.getElementById("myNav").style.width = "0%";
+      }
+
+      const phoneInputField = document.querySelector("#phone");
+      const phoneInput = window.intlTelInput(phoneInputField, {
+        utilsScript:
+          "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
+      });
+    </script>
+  </body>
+</html>
